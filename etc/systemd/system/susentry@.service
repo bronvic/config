@@ -1,0 +1,12 @@
+[Unit]
+Description = Monitore my face and lock screan when I left
+
+[Service]
+User=%I
+Type=simple
+Enviroment=DISPLAY=:0
+ExecStart=/opt/susentry/susentry
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multy-user.target
