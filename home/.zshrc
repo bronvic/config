@@ -133,18 +133,6 @@ alias lst='ls -ghotr'
 
 alias sd='sudo shutdown -h now'
 
-alias up='
-    pacget -Syu 
-    rustup update
-    git -C ~/.config/i3blocks pull --depth=1
-
-    for dir in /home/voronwe/.vim/pack/plugins/start/*/
-    do
-	git -C $dir pull --depth=1
-    done
-    
-    ~/projects/bash/config/backup.sh'
-
 alias гз='up'
 
 alias c='clear'
@@ -162,36 +150,6 @@ alias wget="wget --hsts-file ~/.config/wget"
 #################################################
 
 alias prod='psql -U $SECRET_USER_NAME -p $SECRET_GORDON_POSTGRES_PORT -h $SECRET_GORDON_POSTGRES_HOST --dbname=$SECRET_GORDON_DB_NAME'
-
-#################################################
-###################scripts#######################
-#################################################
-
-####### archives
-
-unpack () {
-  if [ -f "$1" ]; then
-    case $1 in
-      *.tar.bz2)   tar xvjf "$1"    ;;
-      *.tar.gz)    tar xvzf "$1"    ;;
-      *.tar.xz)    tar xvJf "$1"    ;;
-      *.bz2)       bunzip2 "$1"     ;;
-      *.rar)       unrar x "$1"     ;;
-      *.gz)        gunzip "$1"      ;;
-      *.tar)       tar xvf "$1"     ;;
-      *.tbz2)      tar xvjf "$1"    ;;
-      *.tgz)       tar xvzf "$1"    ;;
-      *.zip)       unzip "$1"       ;;
-      *.Z)         uncompress "$1"  ;;
-      *.7z)        7z x "$1"        ;;
-      *.xz)        unxz "$1"        ;;
-      *.exe)       cabextract "$1"  ;;
-      *)           echo "\`$1': Unknown method of file compression" ;;
-    esac
-  else
-    echo "\`$1' no found"
-  fi
-}
 
 ####### vim with alacrity
 
