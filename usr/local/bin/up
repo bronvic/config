@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+# global system update
+pacget -Suy
+
+# rust update
+rustup update
+
+# i3blocks update
+git -C "$HOME"/.config/i3blocks pull --depth=1
+
+# vim plugins update
+for folder in "$HOME"/.vim/pack/plugins/start/*/
+do
+    git -C "$folder" pull --depth=1
+done
+
+# backup changed configs
+"$HOME"/projects/bash/config/backup.sh
