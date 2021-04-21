@@ -217,3 +217,10 @@ for_window [class="Yad"] floating enable
 # i3 configuration; num and caps indicators
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks                  
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks 
+
+# remap arrow keys for fancy keyboard
+exec xmodmap -e "keycode 111 = Left NoSymbol Left"
+exec xmodmap -e "keycode 113 = Down NoSymbol Down"
+exec xmodmap -e "keycode 116 = Up NoSymbol Up"
+exec xmodmap -e "keycode 114 = Right NoSymbol Right"
+
