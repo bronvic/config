@@ -3,3 +3,8 @@
 setxkbmap -option grp:alt_shift_toggle, us,ru
 xset b off
 i3-msg restart
+
+xmodmap -e "keycode 111 = Left NoSymbol Left"
+xmodmap -e "keycode 113 = Down NoSymbol Down"
+xmodmap -e "keycode 116 = Up NoSymbol Up"
+xmodmap -e "keycode 114 = Right NoSymbol Right"
