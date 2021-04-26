@@ -8,6 +8,7 @@ inoremap <right> <nop>
 
 :set number relativenumber
 
+" Rust plugin
 syntax enable
 filetype plugin indent on
 
