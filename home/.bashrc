@@ -102,3 +102,11 @@ export PATH=$PATH:/home/$USER/.local/bin
 
 [[ -s "/home/voronwe/.gvm/scripts/gvm" ]] && source "/home/voronwe/.gvm/scripts/gvm"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+
+
+
+export PIP_RESPECT_VIRTUALENV=true
+export WORKON_HOME=/home/voronwe/.virtualenvs
+export PIP_VIRTUALENV_BASE=/home/voronwe/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
