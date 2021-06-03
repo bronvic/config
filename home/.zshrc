@@ -1,36 +1,18 @@
-# Preload
-# BUG: https://github.com/robbyrussell/oh-my-zsh/issues/2750
-bindkey "\e$terminfo[kcub1]" backward-word
-bindkey "\e$terminfo[kcuf1]" forward-word
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/voronwe/.oh-my-zsh"
 
-# Rust default settings path
-export RUSTUP_HOME=/home/voronwe/.config/rust
-
-# Cookie file path for pulseaudio
-export PULSE_COOKIE=~/.config/pulse/cookie
-
-# Postgresql history file
-export HISTFILE=~/.config/postgresql/.psql_history
-
-# Envirable variables with secret data exports here
-export $(xargs < $HOME/scripts/secret_envs)
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="af-magic"
-# ZSH_THEME="random"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -51,7 +33,7 @@ ZSH_THEME="af-magic"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -63,12 +45,14 @@ ZSH_THEME="af-magic"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -76,24 +60,17 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions)
-
-# Autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# Store .zcompdump files in .cache insead of $HOME
-# FIXME: this files occures both in $HOME and .cache now :(
-# autoload  -Uz compinit
-# compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,25 +82,33 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-# export MAKEFLAGS='-j 7'
-
-# Default terminal
-# export TERM='alacritty'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#
+# Exports
+#
+# Rust default settings path
+export RUSTUP_HOME=/home/voronwe/.config/rust
+
+# Cookie file path for pulseaudio
+export PULSE_COOKIE=~/.config/pulse/cookie
+
+# Postgresql history file
+export HISTFILE=~/.config/postgresql/.psql_history
+
+# Aliases
 alias l='ls -gho --color=tty'
 alias k='ls -gho --color=tty'
 alias д='ls -gho --color=tty'
@@ -145,29 +130,3 @@ alias ports='sudo netstat -tulpn'
 
 alias wget="wget --hsts-file ~/.config/wget"
 
-#################################################
-####################work#########################
-#################################################
-
-alias prod='psql -U $SECRET_USER_NAME -p $SECRET_GORDON_POSTGRES_PORT -h $SECRET_GORDON_POSTGRES_HOST --dbname=$SECRET_GORDON_DB_NAME'
-
-####### vim with alacrity
-
-# vim() {
-#   if [ -n "${1}" ]; then
-#     local target=$(realpath $1)
-#   fi
-# 
-#   nohup alacritty \
-# 	--config-file ~/.config/alacritty/alacritty-vim.yml \
-# 	-t "${target}" \
-# 	--option font.size=20 \
-# 	-e $SHELL -lc "vim ${target}" >/dev/null &
-# }
-
-#################################################
-###################trash#########################
-#################################################
-
-[[ -s "/home/voronwe/.gvm/scripts/gvm" ]] && source "/home/voronwe/.gvm/scripts/gvm"
-source /usr/share/autoenv-git/activate.sh

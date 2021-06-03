@@ -126,7 +126,7 @@ signal=11
 
 [kbdd_layout]
 interval=persist
-min_width=Eng
+min_width=English (US)
 
 #[keyindicator]
 #KEY=NUM
@@ -135,9 +135,8 @@ min_width=Eng
 #signal=11
 
 [calendar]
-command=$SCRIPT_DIR/calendar/calendar
 interval=1
-LABEL= 
+LABEL=
 DATEFMT=+%H:%M:%S
 # SHORTFMT=+%H:%M:%S
 HEIGHT=180
