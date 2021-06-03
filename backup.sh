@@ -16,10 +16,10 @@ for inner_fpath in $(find "$root" -mindepth 2 -type f -not -path "*.git/*"); do
     out_fpath=$(echo "$out_fpath" | sed -e "s|^/home/|$HOME/|g")
 
     # if file is missing, remove it from git repo and continue
-    if [ ! -f "$out_fpath" ]; then
-        rm "$inner_fpath"
-        continue
-    fi
+    # if [ ! -f "$out_fpath" ]; then
+    #     rm "$inner_fpath"
+    #     continue
+    # fi
 
     # copy files from system to git repo
     if [ "$(stat -c '%U' "$out_fpath")" != "$USER" ]; then

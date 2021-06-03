@@ -20,22 +20,61 @@ alias ll='ls -l'
 
 alias sd='sudo shutdown -h now'
 
-alias up='pac -Syu && pushd ~/.config/i3blocks && git pull && popd'
-alias гз='pac -Syu && pushd ~/.config/i3blocks && git pull && popd'
+alias up='pac -Syu && rustup update'
+alias гз='pac -Syu && rustup update'
 
 alias c='clear'
 alias с='clear'
+alias inet='sudo ip link set wlp3s0 down && sudo ip link set wlp3s0 up && sudo systemctl restart wicd'
 
-alias wtf='watch fping google.com'
-alias цеа='watch fping google.com'
+alias wtf='ping ya.ru'
+alias цеа='ping ya.ru'
 
-alias ports='sudo netstat -tulpn'
+# moves
+alias v2='cd ~/work/environment_root/server/v2'
+alias v5='cd ~/work/environment_root/server/v2'
+
 
 #################################################
 ##################work###########################
 #################################################
 
-alias to-review="python ~/scripts/to-review.py"
+alias build='cd ~/work/environment_root/server/v2 && node node_modules/.bin/gulp build'
+alias dev='cd ~/work/environment_root/server/v2 && node node_modules/.bin/gulp dev'
+#alias autogen='cd ~/work/environment_root/server/v2 && node node_modules/.bin/gulp jison'
+alias nodedb='node --inspect --debug-brk'
+alias gulp='~/work/environment_root/server/v2/node_modules/.bin/gulp'
+alias gulpall='cd ~/work/environment_root/server/v2 && gulp dev && gulp dev --spa static && gulp dev --spa site'
+
+rewind_v5_database() {
+  cd ~/work/environment_root/server/v5 || exit
+
+  db_exists=$(test -e ./visyond/db.sqlite3)
+  if [ "$db_exists" != 0 ]; then
+    rm visyond/db.sqlite3
+  fi
+
+  rm -r visyond/storage/*
+
+  ./manage.sh migrate
+  ./manage.sh bootstrap --develop
+}
+
+unittest () {
+  cd ~/work/environment_root/server/v2 || exit
+  arg="all"
+  if [ ! -z "$1" ]; then
+    arg=$1
+  fi
+
+  node node_modules/.bin/gulp test -u --test "$arg" -j7
+}
+
+performtest () {
+  cd ~/work/new/environment_root/server/v2 || exit
+  node node_modules/.bin/gulp test --unit --expose performance/"$1"
+
+}
 
 
 #################################################
@@ -94,19 +133,19 @@ function set_prompt_line {
     export PS1="$GREEN\$(last_two_dirs) $LIGHT_GREEN[\$(git-current-branch)]$DEFAULT\$ "
 }
 
-set_prompt_line
-alias webadmin='PYTHONPATH=/www/da/python:/www/da/python/webadmin DJANGO_SETTINGS_MODULE=settings.development django-admin.py'
+# set_prompt_line
 
-# PATH
-export PATH=$PATH:/home/$USER/.local/bin
+# LFS
+export LFS=/mnt/lfs
 
-[[ -s "/home/voronwe/.gvm/scripts/gvm" ]] && source "/home/voronwe/.gvm/scripts/gvm"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+# exonium
+# export ROCKSDB_LIB_DIR=/usr/lib/x86_64-linux-gnu
+# export SNAPPY_LIB_DIR=/usr/lib/x86_64-linux-gnu
 
-
-
-
-export PIP_RESPECT_VIRTUALENV=true
-export WORKON_HOME=/home/voronwe/.virtualenvs
-export PIP_VIRTUALENV_BASE=/home/voronwe/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+# xmonad unfreez
+function unstuck {
+  pid=$(pgrep xmonad)
+  cat /proc/$pid/fd/4
+}
+# source /usr/share/undistract-me/long-running.bash
+# notify_when_long_running_commands_finish_install
