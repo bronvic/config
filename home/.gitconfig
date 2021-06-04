@@ -1,0 +1,7 @@
+[user]
+	name = Voronwe
+	email = Voronwe.S@protonmail.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore
