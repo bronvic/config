@@ -1,2 +1,9 @@
+[user]
+	name = Voronwe
+	email = Voronwe.S@protonmail.com
+[color]
+	ui = auto
 [core]
-	excludesfile = /home/voronwe/.gitignore
+        excludesfile = /home/voronwe/.gitignore
+[credential]
+	helper = cache --timeout=62400
