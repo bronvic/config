@@ -8,12 +8,12 @@ inoremap <right> <nop>
 
 :set number relativenumber
 
-" Rust plugin
+" Rust plugin https://github.com/rust-lang/rust.vim/
 syntax enable
 filetype plugin indent on
 
 " autocomple
-let g:completor_racer_binary = '/home/voronwe/.cargo/bin/racer'
+" let g:completor_racer_binary = '/usr/bin/racer'
 
 " select autocomplete by tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
