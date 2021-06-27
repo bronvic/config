@@ -12,8 +12,16 @@ inoremap <right> <nop>
 syntax enable
 filetype plugin indent on
 
-" autocomple
-" let g:completor_racer_binary = '/usr/bin/racer'
+" As-you-type autocomplete
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+
+let g:ale_fixers = { 'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'] }
+
+" Required, explicitly enable Elixir LS
+let g:ale_linters = {
+\  'rust': ['analyzer'],
+\}
 
 " select autocomplete by tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
