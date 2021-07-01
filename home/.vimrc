@@ -23,6 +23,8 @@ let g:ale_linters = {
 \  'rust': ['analyzer'],
 \}
 
+let g:ale_set_highlights = 0
+
 " select autocomplete by tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
