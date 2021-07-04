@@ -4,6 +4,6 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = ~/.gitignore
+        excludesfile = /home/voronwe/.gitignore
 [credential]
 	helper = cache --timeout=62400
