@@ -8,7 +8,7 @@ TimeoutSec=120
 User=postgres
 Group=postgres
 
-Environment=PGROOT=/home/voronwe/.postgres
+Environment=PGROOT=/var/lib/postgres
 
 SyslogIdentifier=postgres
 PIDFile=/var/lib/postgres/data/postmaster.pid
@@ -27,7 +27,7 @@ OOMScoreAdjust=-200
 
 # Additional security-related features
 PrivateTmp=true
-ProtectHome=false
+ProtectHome=true
 ProtectSystem=full
 NoNewPrivileges=true
 ProtectControlGroups=true
