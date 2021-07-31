@@ -130,5 +130,3 @@ alias ports='sudo netstat -tulpn'
 
 alias wget="wget --hsts-file ~/.config/wget"
 
-
-[[ -s "/home/voronwe/.gvm/scripts/gvm" ]] && source "/home/voronwe/.gvm/scripts/gvm"
