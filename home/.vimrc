@@ -60,14 +60,14 @@ autocmd BufRead *.{vader,vim}
       \ command! -buffer Test call s:exercism_tests()
 
 " ctrlp fuzzy finder
-set wildignore+=*/_vendor/*
-let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_working_path_mode = 'ra'
+nnoremap <silent> <C-m> :Files<CR>
 
 " NERDTree settings
 nmap <C-f> :NERDTreeToggle<CR>
 
 " Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
