@@ -6,29 +6,20 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-:set number relativenumber
+" Common settings
+set number relativenumber
 
-" Rust plugin https://github.com/rust-lang/rust.vim/
+set tabstop=4
+set shiftwidth=4  " uses instead of tabstop in some cases
+set expandtab  " insert spaces instead tabs
+
+" Common ide things
 syntax enable
-filetype plugin indent on
+filetype plugin indent on  " recognize file type in several ways
 
-" As-you-type autocomplete
-set completeopt=menu,menuone,preview,noselect,noinsert
-let g:ale_completion_enabled = 1
-
-let g:ale_fixers = { 'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'] }
-
-" Required, explicitly enable Elixir LS
-let g:ale_linters = {
-\  'rust': ['analyzer'],
-\}
-
-let g:ale_set_highlights = 0
-
-" select autocomplete by tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" Python settings
+" Syntax configuration stores in ~/.vim/syntax/python.vim
+let python_highlight_all = 1
 
 " markdown
 let g:vim_markdown_folding_disabled = 1
@@ -59,15 +50,12 @@ endfunction
 autocmd BufRead *.{vader,vim}
       \ command! -buffer Test call s:exercism_tests()
 
-" ctrlp fuzzy finder
-" let g:ctrlp_working_path_mode = 'ra'
-nnoremap <silent> <C-m> :Files<CR>
+" Fuzzy finder
+nnoremap <F2> :Files<CR>
+nnoremap <F3> :Lines<CR>
 
-" NERDTree settings
+" NERDTree 
 nmap <C-f> :NERDTreeToggle<CR>
-
-" Start NERDTree and leave the cursor in it.
-" autocmd VimEnter * NERDTree
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
