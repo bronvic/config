@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Run vim with in alacritty with config file which more appropriate for coding
+alacritty --config-file=/home/voronwe/.config/alacritty/alacritty-vim.yml -e vim "$1"

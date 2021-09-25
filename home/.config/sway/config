@@ -17,7 +17,7 @@ set $right l
 set $term alacritty 
 
 # Application launcher
-set $menu wofi --show=drun
+set $menu wofi --show=drun --allow-images --gtk-dark --insensitive
 
 ### Output configuration
 #
@@ -125,7 +125,6 @@ bindsym $mod+r mode "resize"
 bindsym $mod+m move workspace to output right
 
 # Screenshots
-#
 bindsym Print exec grim -t jpeg -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 bindsym $mod+Print exec grim -t jpeg ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
