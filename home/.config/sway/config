@@ -142,6 +142,9 @@ bindsym XF86AudioMute exec pamixer --toggle-mute
 bindsym XF86MonBrightnessDown exec brightnessctl s 7%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +7%
 
+# Bluetooth
+blueman-applet
+
 # Input
 # 
 input "type:keyboard" {
