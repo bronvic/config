@@ -36,7 +36,7 @@ done
 if [[ -z "$BACKUP_DRY_RUN" ]]; then
     # check if something was changed
     CHANGED=$(git diff-index --name-only HEAD --)
-    if [ -n "CHANGED" ]; then
+    if [ -n "$CHANGED" ]; then
         git -C "$root" add .
         git -C "$root" commit -m "Someting changed" 
         git -C "$root" push
