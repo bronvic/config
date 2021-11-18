@@ -37,9 +37,15 @@ if [[ -z "$BACKUP_DRY_RUN" ]]; then
     # check if something was changed
     CHANGED=$(git diff-index --name-only HEAD --)
     if [ -n "$CHANGED" ]; then
-        git -C "$root" add .
-        git -C "$root" commit -m "Someting changed" 
-        git -C "$root" push
+        # Allow user to review changes and discard them
+        git -C "$root" --no-pager diff
+        read -p "Accept changes? [Y/n]: " save_chages
+
+        if [[ "$save_chages" != "n" ]]; then
+            git -C "$root" add .
+            git -C "$root" commit -m "Someting changed"
+            git -C "$root" push
+        fi
     fi
 fi
 
