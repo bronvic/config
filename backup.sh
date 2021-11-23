@@ -45,7 +45,7 @@ if [[ -z "$BACKUP_DRY_RUN" ]]; then
         if [[ "$save_chages" != "n" ]]; then
             # Allow to choose commit message
             read -rp "Write custom commit message (or enter to skip): " commit_message
-            if [[ -n "$commit_message" ]]; then
+            if [[ "$commit_message" == "" ]]; then
                 commit_message="Someting changed"
             fi
 
