@@ -35,15 +35,22 @@ done
 # commit and push changes (if any) and if not dry run
 if [[ -z "$BACKUP_DRY_RUN" ]]; then
     # check if something was changed
-    CHANGED=$(git diff-index --name-only HEAD --)
+    CHANGED=$(git -C "$root" diff-index --name-only HEAD --)
     if [ -n "$CHANGED" ]; then
         # Allow user to review changes and discard them
+        git -C "$root" status
         git -C "$root" --no-pager diff
-        read -p "Accept changes? [Y/n]: " save_chages
+        read -rp "Accept changes? [Y/n]: " save_chages
 
         if [[ "$save_chages" != "n" ]]; then
+            # Allow to choose commit message
+            read -rp "Write custom commit message (or enter to skip): " commit_message
+            if [[ -n "$commit_message" ]]; then
+                commit_message="Someting changed"
+            fi
+
             git -C "$root" add .
-            git -C "$root" commit -m "Someting changed"
+            git -C "$root" commit -m "$commit_message"
             git -C "$root" push
         fi
     fi

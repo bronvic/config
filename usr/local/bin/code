@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# wrapper for visual studio code to run it under wayland
+# see https://github.com/electron/electron/issues/30897 for make this solution more native
+
+exec /usr/bin/code --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
