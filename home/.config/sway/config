@@ -129,6 +129,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+m move workspace to output right
 
+# For flameshot https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 # Screenshots
 bindsym Print exec grim -t jpeg -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 bindsym $mod+Print exec grim -t jpeg ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg

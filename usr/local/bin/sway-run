@@ -5,6 +5,11 @@ export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway
 
+# for flameshot https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+
 source /usr/local/bin/wayland_enablement
 
 systemd-cat --identifier=sway sway $@
