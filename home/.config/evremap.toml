@@ -1,0 +1,13 @@
+device_name = "LingYao ShangHai Thumb Keyboard"
+
+[[remap]]
+input = ["KEY_UP"]
+output = ["KEY_LEFT"]
+
+[[remap]]
+input = ["KEY_LEFT"]
+output = ["KEY_DOWN"]
+
+[[remap]]
+input = ["KEY_DOWN"]
+output = ["KEY_UP"]
