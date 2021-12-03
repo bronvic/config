@@ -24,7 +24,7 @@ do
 
     if [[ -f "$out_fpath" ]]; then
         # copy files from system to git repo if they are different
-        if [[ $(cmp "$out_fpath" "$inner_fpath") ]]; then
+        if [[ $(diff "$out_fpath" "$inner_fpath") ]]; then
             if [ "$(stat -c '%U' "$out_fpath")" != "$USER" ]; then
                 # if file owned not by currect user, copy it with sudo
                 sudo cp "$out_fpath" "$inner_fpath"
