@@ -22,13 +22,15 @@ for inner_fpath in $(find "$root" -mindepth 2 -type f -not -path "*.git/*"); do
     # fi
 
     if [[ -f "$out_fpath" ]]; then
-    	# copy files from system to git repo
-    	if [ "$(stat -c '%U' "$out_fpath")" != "$USER" ]; then
-    	    # if file owned not by currect user, copy it with sudo
-    	    sudo cp "$out_fpath" "$inner_fpath"
-    	else
-    	    cp "$out_fpath" "$inner_fpath"
-    	fi
+        # copy files from system to git repo if they are different
+        if [[ $(cmp "$out_fpath" "$inner_fpath") ]]; then
+            if [ "$(stat -c '%U' "$out_fpath")" != "$USER" ]; then
+                # if file owned not by currect user, copy it with sudo
+                sudo cp "$out_fpath" "$inner_fpath"
+            else
+                cp "$out_fpath" "$inner_fpath"
+            fi
+        fi
     fi
 done
 
