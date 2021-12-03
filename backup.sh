@@ -38,7 +38,7 @@ done<   <(find "$root" -mindepth 2 -type f -not -path "*.git/*" -print0)
 # commit and push changes (if any) and if not dry run
 if [[ -z "$BACKUP_DRY_RUN" ]]; then
     # check if something was changed
-    CHANGED=$(git -C "$root" diff-index --name-only HEAD --)
+    CHANGED=$(git -C "$root" status --porcelain)
     if [ -n "$CHANGED" ]; then
         # Allow user to review changes and discard them
         git -C "$root" status
