@@ -5,7 +5,8 @@ echo "backuping system configuration files..."
 root=$(dirname "${BASH_SOURCE[0]}")
 
 # loop through all files in folders except .git folders
-for inner_fpath in $(find "$root" -mindepth 2 -type f -not -path "*.git/*"); do
+while IFS= read -r -d '' inner_fpath
+do
     # strip absolute path to make it relative to script directory
     out_fpath=$(realpath --relative-to="$root" "$inner_fpath");
 
@@ -32,7 +33,7 @@ for inner_fpath in $(find "$root" -mindepth 2 -type f -not -path "*.git/*"); do
             fi
         fi
     fi
-done
+done<   <(find "$root" -mindepth 2 -type f -not -path "*.git/*" -print0)
 
 # commit and push changes (if any) and if not dry run
 if [[ -z "$BACKUP_DRY_RUN" ]]; then
