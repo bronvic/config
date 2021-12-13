@@ -8,5 +8,6 @@
     "code-eol.highlightExtraWhitespace": true,
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
-    "python.venvPath": "/home/voronwe/.cache/pypoetry/virtualenvs"
+    "python.venvPath": "/home/voronwe/.cache/pypoetry/virtualenvs",
+    "explorer.confirmDelete": false
 }
