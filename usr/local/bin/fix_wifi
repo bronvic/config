@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sudo systemctl restart wpa_supplicant
+sudo systemctl restart connman
+sudo connmanctl enable wifi

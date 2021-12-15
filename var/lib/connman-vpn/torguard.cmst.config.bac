@@ -1,0 +1,11 @@
+[global]
+Name = torguard openvpn
+
+[provider_openconnect]
+Type = OpenConnect
+Name = torguard
+Host = ***
+OpenConnect.AuthType = userpass
+OpenConnect.Username = ***
+OpenConnect.Password = ***
+OpenConnect.AllowSelfSignedCert = true
