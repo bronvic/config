@@ -9,5 +9,12 @@
     "editor.renderWhitespace": "all",
     "editor.detectIndentation": false,
     "python.venvPath": "/home/voronwe/.cache/pypoetry/virtualenvs",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    }
 }
