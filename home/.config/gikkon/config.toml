@@ -1,0 +1,10 @@
+[General]
+path = "/home/voronwe/.config/backup"
+dry_run = false
+
+[Backup]
+remove = false
+
+[List]
+show_all = false
+repo_path = false
