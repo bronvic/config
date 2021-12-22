@@ -8,4 +8,5 @@ paru
 rustup update
 
 # backup changed configs
-"$HOME"/projects/shell/config/backup.sh
+gikkon backup
+
