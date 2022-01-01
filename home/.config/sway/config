@@ -150,6 +150,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl s +7%
 # Bluetooth
 exec blueman-applet
 
+# Notification servcie
+exec mako
+
 # Input
 # 
 input "type:keyboard" {
@@ -157,8 +160,13 @@ input "type:keyboard" {
     xkb_options grp:alt_shift_toggle
 }
 
+# Preserve input per window
+exec swaykbdd
+
+
 bar {
     swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
+

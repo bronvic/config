@@ -24,7 +24,7 @@ ZSH_THEME="random"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -42,7 +42,7 @@ ZSH_THEME="random"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -105,9 +105,6 @@ export RUSTUP_HOME=/home/voronwe/.config/rust
 # Cookie file path for pulseaudio
 export PULSE_COOKIE=~/.config/pulse/cookie
 
-# Postgresql history file
-export HISTFILE=~/.config/postgresql/.psql_history
-
 # Aliases
 alias l='ls -gho --color=tty'
 alias k='ls -gho --color=tty'
@@ -129,4 +126,12 @@ alias цеа='watch fping google.com'
 alias ports='sudo netstat -tulpn'
 
 alias wget="wget --hsts-file ~/.config/wget"
+
+# Fish-like autosugestions and highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Share history between terminals
+setopt inc_append_history
+setopt share_history
 
