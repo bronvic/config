@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "ps is deprecated on this arch, try procs"
+echo "if you insist, call ps from /usr/bin/ps"

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "du is deprecated on this arch, try dust"
+echo "if you insist, call du from /usr/bin/du"

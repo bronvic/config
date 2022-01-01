@@ -10,3 +10,5 @@ rustup update
 # backup changed configs
 gikkon backup
 
+# update tldr cash
+tealdeer
