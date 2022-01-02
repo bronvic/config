@@ -127,6 +127,8 @@ alias ports='sudo netstat -tulpn'
 
 alias wget="wget --hsts-file ~/.config/wget"
 
+alias watch="watch --color"
+
 # Fish-like autosugestions and highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

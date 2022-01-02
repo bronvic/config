@@ -11,4 +11,4 @@ rustup update
 gikkon backup
 
 # update tldr cash
-tealdeer
+tldr --update
