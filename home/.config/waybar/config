@@ -23,18 +23,18 @@
 		"custom/left-arrow-dark",
 		"pulseaudio",
 		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"memory",
-		"custom/left-arrow-light",
+		// "custom/left-arrow-dark",
+		// "memory",
+		// "custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"cpu",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"battery",
 		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"disk",
-		"custom/left-arrow-light",
+		// "custom/left-arrow-dark",
+		// "disk",
+		// "custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"network",
 		"custom/left-arrow-light",
@@ -63,7 +63,7 @@
 	},
 
 	"sway/workspaces": {
-		"disable-scroll": true,
+		"disable-scroll": false,
 		"format": "{name}"
 	},
 
@@ -79,17 +79,28 @@
 		"format": "{:%m-%d}",
 		"tooltip": false
 	},
+        "temperature": {
+        "thermal-zone": 0,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons":[""],
+        "interval": 30
+    },
 
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}  {percent}%  ",
+        "format-icons": ["","","",""],
+        "interval": 60
+    },
 	"pulseaudio": {
-		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon}  {volume}%",
+		"format": "{icon} {volume:2}% {format_source}",
+		"format-bluetooth": "{icon} {volume}% {format_source}",
 		"format-muted": "MUTE",
+        "format-source": "{volume}%",
+        "format-source-muted": "",
 		"format-icons": {
 			"headphones": "",
-			"default": [
-				"",
-				""
-			]
+			"default": ["", "", ""]
 		},
 		"scroll-step": 5,
 		"on-click": "pamixer -t",
@@ -101,7 +112,8 @@
 	},
 	"cpu": {
 		"interval": 5,
-		"format": " {usage:2}%"
+		"format": " {usage:2}%",
+        "on-click": "alacritty --command btm --color=gruvbox --hide_time --disable_click"
 	},
 	"battery": {
 		"states": {
@@ -110,13 +122,8 @@
 			"critical": 15
 		},
 		"format": "{icon} {capacity}%",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
+        "format-charging": " {capacity}%",
+		"format-icons": ["", "", "", "", ""]
 	},
 	"disk": {
 		"interval": 5,
@@ -126,7 +133,7 @@
 	"network": {
 		"format-wifi": " {signalStrength}%",
         	"format-ethernet": "",
-        	"format-disconnected": "",
+        	"format-disconnected": "睊",
 		"interval": 10,
 		"tooltip-format": "{ifname}  {ipaddr}",
 		"on-click": "cmst --disable-minimize --disable-tray-icon"
