@@ -1,0 +1,17 @@
+[Unit]
+Description=Greeter daemon
+After=systemd-user-sessions.service plymouth-quit-wait.service
+After=getty@tty1.service
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=greetd
+IgnoreSIGPIPE=no
+SendSIGHUP=yes
+TimeoutStopSec=30s
+KeyringMode=shared
+Restart=no
+
+[Install]
+Alias=display-manager.service

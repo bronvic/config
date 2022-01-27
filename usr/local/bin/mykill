@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+pid=$(procs --sorta PID --only PID --no-header "$1" | head -n 1)
+kill -9 "$pid" 
+
