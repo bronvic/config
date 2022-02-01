@@ -17,5 +17,6 @@
             "source.organizeImports": true
         }
     },
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false
 }
