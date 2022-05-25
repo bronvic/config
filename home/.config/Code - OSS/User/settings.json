@@ -1,5 +1,4 @@
 {
-    "window.zoomLevel": 2,
     "rust.wait_to_build": 5,
     "rust-client.channel": "stable",
     "rust-client.disableRustup": true,
@@ -18,5 +17,6 @@
         }
     },
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.unicodeHighlight.ambiguousCharacters": false
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "window.zoomLevel": 2
 }
