@@ -3,8 +3,7 @@
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=3
 GRUB_DISTRIBUTOR="Arch"
-# To prevent stucks due to poore disk condition or any other problems
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=7 fsck.mode=skip"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=7"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
@@ -57,5 +56,8 @@ GRUB_DISABLE_RECOVERY=true
 # Uncomment to disable submenus in boot menu
 #GRUB_DISABLE_SUBMENU=y
 
-# Detecting other operationg systems
-GRUB_DISABLE_OS_PROBER=false
+# Probing for other operating systems is disabled for security reasons. Read
+# documentation on GRUB_DISABLE_OS_PROBER, if still want to enable this
+# functionality install os-prober and uncomment to detect and include other
+# operating systems.
+#GRUB_DISABLE_OS_PROBER=false

@@ -1,5 +1,5 @@
 [General]
-path = "/home/voronwe/.config/backup"
+path = "/home/voronwe/.config/gikkon/config_repo"
 dry_run = false
 
 [Backup]
