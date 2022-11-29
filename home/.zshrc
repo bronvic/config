@@ -100,7 +100,7 @@ export EDITOR='vim'
 # Exports
 #
 # Rust default settings path
-export RUSTUP_HOME=/home/voronwe/.config/rust
+# export RUSTUP_HOME=/home/voronwe/.config/rust
 
 # Cookie file path for pulseaudio
 export PULSE_COOKIE=~/.config/pulse/cookie
@@ -137,5 +137,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 setopt inc_append_history
 setopt share_history
 
+# pip-search fix
+alias pip='function _pip(){
+  if [ $1 = "search" ]; then
+    pip_search "$2";
+    else pip "$@";
+  fi;
+};_pip'
 # direnv hook
 eval "$(direnv hook zsh)"
