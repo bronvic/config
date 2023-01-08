@@ -129,6 +129,12 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# bind applications to workspaces
+# but it doesn't work(
+assign [class="Chromium" instance="Profile 1"] $ws2
+assign [class="Chromium" instance="Profile 2"] $ws3
+assign [class="Chromium" instance="Profile 3"] $ws9
+
 # sound
 bindsym XF86AudioRaiseVolume exec pamixer --unmute --increase 5
 bindsym XF86AudioLowerVolume exec pamixer --unmute --decrease 5
