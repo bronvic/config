@@ -27,7 +27,7 @@ OOMScoreAdjust=-200
 
 # Additional security-related features
 PrivateTmp=true
-ProtectHome=false
+ProtectHome=true
 ProtectSystem=full
 NoNewPrivileges=true
 ProtectControlGroups=true

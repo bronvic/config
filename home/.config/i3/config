@@ -230,6 +230,8 @@ exec xset b off
 
 # https://github.com/vivien/i3blocks-contrib/tree/master/calendar#installation
 for_window [class="Yad"] floating enable
+for_window [class="1Password"] floating enable
+
 
 # i3 configuration; num and caps indicators
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks

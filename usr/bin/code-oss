@@ -16,7 +16,7 @@ for line in "${MAPFILE[@]}"; do
     fi
 done
 
-name=electron19 
+name=electron22 
 flags_file="${XDG_CONFIG_HOME:-$HOME/.config}/${name}-flags.conf"
 
 declare -a electronflags

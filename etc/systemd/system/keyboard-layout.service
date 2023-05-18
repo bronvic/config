@@ -1,0 +1,7 @@
+[Unit]
+Description=Set keyboard layout
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/keyboard_added.sh
+

@@ -6,11 +6,13 @@ Exec=/usr/bin/code-oss --unity-launch %F
 Icon=com.visualstudio.code.oss
 Type=Application
 StartupNotify=false
-StartupWMClass=Code
+StartupWMClass=code-oss
 Categories=TextEditor;Development;IDE;
 MimeType=text/plain;application/x-code-oss-workspace;
 Actions=new-empty-window;
 Keywords=vscode;
+
+X-Desktop-File-Install-Version=0.26
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
