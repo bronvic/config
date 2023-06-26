@@ -5,3 +5,6 @@ Description=Set keyboard layout
 Type=oneshot
 ExecStart=/usr/local/bin/keyboard_added.sh
 
+[Install]
+WantedBy=multi-user.target
+
