@@ -31,4 +31,4 @@ for line in "${ELECTRONMAPFILE[@]}"; do
     fi
 done
 
-ELECTRON_RUN_AS_NODE=1 exec /usr/lib/${name}/electron /usr/lib/code/out/cli.js /usr/lib/code/code.js "${electronflags[@]}" "${codeflags[@]}" "$@"
+ELECTRON_RUN_AS_NODE=1 exec /usr/lib/${name}/electron /usr/lib/code/out/cli.js "${electronflags[@]}" /usr/lib/code/code.js "${codeflags[@]}" "$@"
