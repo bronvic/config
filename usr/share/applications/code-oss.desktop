@@ -2,7 +2,7 @@
 Name=Code - OSS
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=/usr/bin/code-oss --unity-launch %F
+Exec=code-oss --unity-launch %F
 Icon=com.visualstudio.code.oss
 Type=Application
 StartupNotify=false
@@ -11,9 +11,9 @@ Categories=TextEditor;Development;IDE;
 MimeType=text/plain;application/x-code-oss-workspace;
 Actions=new-empty-window;
 Keywords=vscode;
-X-Desktop-File-Install-Version=0.26
+X-Desktop-File-Install-Version=0.27
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
-Exec=/usr/bin/code-oss --new-window %F
+Exec=code-oss --new-window %F
 Icon=com.visualstudio.code.oss
