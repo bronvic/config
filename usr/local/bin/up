@@ -4,8 +4,5 @@ set -e
 # global system update
 paru
 
-# rust update
-rustup update
-
 # backup changed configs
 gikkon backup
