@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = linux
+Target = linux-firmware
+Target = intel-ucode
+
+[Action]
+Description = Copying kernel, initramfs, and microcode to /efi/EFI/arch
+When = PostTransaction
+Exec = /usr/local/bin/move-kernel-to-efi

@@ -135,8 +135,8 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Screenshots
-bindsym Print exec grim -t jpeg -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
-bindsym $mod+Print exec grim -t jpeg ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+bindsym Print exec grim -t jpeg -g "$(slurp)" ~/pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+bindsym $mod+Print exec grim -t jpeg ~/pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
 
 # Sound
 bindsym XF86AudioRaiseVolume exec pamixer --unmute --increase 5 
@@ -149,9 +149,13 @@ bindsym XF86MonBrightnessUp exec brightnessctl s +7%
 
 # Bluetooth
 exec blueman-applet
+for_window [title="blueman-manager"] floating enable
 
 # Notification servcie
 exec mako
+
+# which app uses xwayland
+for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 # Input
 # 

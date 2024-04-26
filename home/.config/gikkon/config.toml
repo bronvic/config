@@ -1,9 +1,10 @@
 [General]
-path = "/home/voronwe/.config/gikkon/config_repo"
+path = "/home/voronwe/.config/gikkon/config"
 dry_run = false
 
 [Backup]
 remove = false
+ask_rollback = true
 
 [List]
 show_all = false

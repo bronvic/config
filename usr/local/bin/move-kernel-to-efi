@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Destination directory
+DEST="/efi/EFI/arch"
+
+# Ensure destination directory exists
+mkdir -p "${DEST}"
+
+# Copy the relevant files
+cp /boot/initramfs-linux.img "${DEST}/"
+cp /boot/initramfs-linux-fallback.img "${DEST}/"
+cp /boot/intel-ucode.img "${DEST}/"
+cp /boot/vmlinuz-linux "${DEST}/"
+
+echo "Files copied to ${DEST}"
