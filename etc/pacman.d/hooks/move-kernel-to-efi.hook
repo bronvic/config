@@ -4,6 +4,7 @@ Type = Package
 Target = linux
 Target = linux-firmware
 Target = intel-ucode
+Target = nvidia-open
 
 [Action]
 Description = Copying kernel, initramfs, and microcode to /efi/EFI/arch

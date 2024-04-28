@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=env GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia sway --unsupported-gpu
+Type=Application
