@@ -15,10 +15,6 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Noto Sans CJK JP, Open Sans Italic 16.0
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -30,17 +26,13 @@ font pango:Noto Sans CJK JP, Open Sans Italic 16.0
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show run -show-icons
 
 # change focus
 bindsym $mod+h focus left
@@ -48,23 +40,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 # bindsym $mod+h split h
@@ -129,12 +109,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# bind applications to workspaces
-# but it doesn't work(
-assign [class="Chromium" instance="Profile 1"] $ws2
-assign [class="Chromium" instance="Profile 2"] $ws3
-assign [class="Chromium" instance="Profile 3"] $ws9
-
 # sound
 bindsym XF86AudioRaiseVolume exec pamixer --unmute --increase 5
 bindsym XF86AudioLowerVolume exec pamixer --unmute --decrease 5
@@ -168,12 +142,6 @@ mode "resize" {
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
 
-  # same bindings, but for the arrow keys
-  # bindsym Left resize shrink width 10 px or 10 ppt
-  # bindsym Down resize grow height 10 px or 10 ppt
-  # bindsym Up resize shrink height 10 px or 10 ppt
-  # bindsym Right resize grow width 10 px or 10 ppt
-
   # back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -185,16 +153,12 @@ bindsym $mod+r mode "resize"
 bindsym $mod+m move workspace to output right
 bindsym $mod+Shift+m move workspace to output left
 
-# bindsym $mod+l exec "i3lock -i .config/screensaver/_s_p_a_c_e____o_u_t__by_vashperado_d4dn7sa-pre.png"
+# bindsym $mod+Shift+x exec "i3lock -i .config/screensaver/_s_p_a_c_e____o_u_t__by_vashperado_d4dn7sa-pre.png"
+bindsym $mod+Shift+x exec i3lock
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  position top
-  status_command SCRIPT_DIR=~/.config/i3blocks/i3blocks-contrib i3blocks
-}
+# Launch Polybar
+exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh default
 
-# autorun
 
 # Keyboard layout
 exec setxkbmap -option grp:alt_shift_toggle, us,ru
@@ -214,23 +178,10 @@ exec pasystray
 # Beep sound
 exec xset b off
 
-# Dropbox
-# exec dropbox &
-
-# VPN
-# exec /opt/piavpn/bin/pia-client &
-
-# Autostart
-# exec --no-startup-id i3-msg 'workspace 1; exec pycharm'
-# exec --no-startup-id i3-msg 'workspace 2; exec chromium --profile-directory="Profile 1"'
-# exec --no-startup-id i3-msg 'workspace 3; exec chromium --profile-directory="Profile 2"'
-# exec --no-startup-id i3-msg 'workspace 9; exec chromium --profile-directory="Profile 3"'
-# exec --no-startup-id i3-msg 'workspace 10; exec i3-sensible-terminal -e vpn ukg'
-# exec --no-startup-id i3-msg 'workspace 10; exec i3-sensible-terminal'
-
 # https://github.com/vivien/i3blocks-contrib/tree/master/calendar#installation
 for_window [class="Yad"] floating enable
 for_window [class="1Password"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 
 # i3 configuration; num and caps indicators

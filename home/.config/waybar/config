@@ -108,7 +108,7 @@
 	},
 	"memory": {
 		"interval": 5,
-		"format": " {}%"
+		"format": " {}%"
 	},
 	"cpu": {
 		"interval": 5,
