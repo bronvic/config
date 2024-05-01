@@ -178,6 +178,9 @@ exec pasystray
 # Beep sound
 exec xset b off
 
+# Preserve input per window
+exec kbdd
+
 # https://github.com/vivien/i3blocks-contrib/tree/master/calendar#installation
 for_window [class="Yad"] floating enable
 for_window [class="1Password"] floating enable
