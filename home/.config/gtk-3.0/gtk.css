@@ -1,0 +1,10 @@
+/* General Background Colors */
+.nemo-window {
+    background-color: #292b2e;
+    color: #fdf6e3;
+}
+
+/* Selected Item Colors */
+.nemo-window .view .cell:selected {
+    background-color: #0e6b0e;
+}
