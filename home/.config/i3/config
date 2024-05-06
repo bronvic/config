@@ -181,10 +181,13 @@ exec xset b off
 # Preserve input per window
 exec kbdd
 
+# To find out what goes in your class, type xprop in terminal, then click on the window you want to float
+# Look fir WM_CLASS(STRING)
 # https://github.com/vivien/i3blocks-contrib/tree/master/calendar#installation
 for_window [class="Yad"] floating enable
 for_window [class="1Password"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="iwgtk"] floating enable
 
 
 # i3 configuration; num and caps indicators
