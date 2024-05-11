@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dependencies:
+#   * iwd
+#   * wireguard-tools
 
 if [ "$(iwctl station wlan0 show | awk '/State/ {print $2}')" == 'connected' ]; then
 

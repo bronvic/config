@@ -68,7 +68,7 @@
 	},
 
 	"clock#1": {
-		"format": "{:%a}",
+		"format": " {:%a} ",
 		"tooltip": false
 	},
 	"clock#2": {

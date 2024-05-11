@@ -22,7 +22,7 @@ set $menu wofi --show=drun --allow-images --gtk-dark --insensitive
 ### Output configuration
 #
 # Wallpaper
-exec setwall random ~/pictures/backgrounds/ -c sway
+exec setwall random ~/pictures/backgrounds -c sway
 
 # Idle configuration
 #
@@ -30,11 +30,6 @@ exec swayidle -w \
     timeout 600 'swaylock -f -c 000000' \
     timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
-
-# Monitors position
-#
-output eDP-1 pos 1920 100
-output DP-1 pos 3840 0
 
 ### Key bindings
 #
