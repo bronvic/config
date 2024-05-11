@@ -32,5 +32,3 @@ if [ "$(iwctl station wlan0 show | awk '/State/ {print $2}')" == 'connected' ]; 
 else
   echo "%{F#757575}󰖪 ▁%{F-}"
 fi
-
-I want a bash script that runs wg command id echo one thing if there is stderr and another if not
