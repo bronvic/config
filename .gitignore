@@ -1,0 +1,3 @@
+# these files contains system-specific UUID
+efi/loader/entries/arch.conf
+efi/loader/entries/arch-fallback.conf
