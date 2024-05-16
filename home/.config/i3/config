@@ -156,18 +156,13 @@ bindsym $mod+Shift+m move workspace to output left
 # bindsym $mod+Shift+x exec "i3lock -i .config/screensaver/_s_p_a_c_e____o_u_t__by_vashperado_d4dn7sa-pre.png"
 bindsym $mod+Shift+x exec i3lock
 
-# Launch Polybar
+# Autostart
+# Polybar
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh default
-
+exec_always --no-startup-id conky -c $HOME/.config/conky/conky.conf
 
 # Keyboard layout
 exec setxkbmap -option grp:alt_shift_toggle, us,ru
-
-# Network
-exec nm-applet
-
-# Sound
-exec pasystray
 
 # Bluetooth
 # exec blueberry-tray
@@ -180,6 +175,7 @@ exec xset b off
 
 # Preserve input per window
 exec kbdd
+
 
 # To find out what goes in your class, type xprop in terminal, then click on the window you want to float
 # Look fir WM_CLASS(STRING)
