@@ -176,6 +176,9 @@ exec xset b off
 # Preserve input per window
 exec kbdd
 
+# Auth agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 
 # To find out what goes in your class, type xprop in terminal, then click on the window you want to float
 # Look fir WM_CLASS(STRING)

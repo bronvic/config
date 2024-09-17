@@ -1,5 +1,5 @@
 [Match]
-Name=ether
+Name=enp42s0
 
 [Network]
 DHCP=yes
