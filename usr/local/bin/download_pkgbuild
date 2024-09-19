@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# Function to download PKGBUILD from the latest tag
+download_latest_tag_pkgbuild() {
+    # Package name and target directory
+    PACKAGE=$1
+    TARGET_DIR=$2
+
+    # Check if the target directory is provided
+    if [ -z "$TARGET_DIR" ]; then
+        echo "Error: Target directory is required."
+        exit 1
+    fi
+
+    # Convert the target directory to an absolute path
+    TARGET_DIR=$(realpath "$TARGET_DIR")
+
+    # Create target directory if it doesn't exist
+    mkdir -p "$TARGET_DIR"
+
+    # Temporary directory to clone the repository
+    TMP_DIR=$(mktemp -d)
+
+    # Clone the repository (without history to save space)
+    git clone --depth 1 --branch main https://gitlab.archlinux.org/archlinux/packaging/packages/$PACKAGE.git "$TMP_DIR" || {
+        echo "Error: Unable to clone repository"
+        exit 1
+    }
+
+    # Navigate to the repository directory
+    cd "$TMP_DIR" || exit
+
+    # Fetch all tags
+    git fetch --tags
+
+    # Get the latest tag
+    LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+
+    # Checkout the latest tag
+    git checkout "$LATEST_TAG"
+
+    # Copy only the PKGBUILD file to the target directory
+    cp PKGBUILD "$TARGET_DIR"
+
+    # Clean up the temporary directory
+    cd "$OLDPWD" || exit
+    rm -rf "$TMP_DIR"
+
+    echo "PKGBUILD from the latest tag ($LATEST_TAG) has been downloaded to $TARGET_DIR."
+}
+
+# Usage: Pass the package name and target directory as arguments
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: $0 <package-name> <target-directory>"
+    exit 1
+else
+    download_latest_tag_pkgbuild "$1" "$2"
+fi
+
+
+# U were trying to run this script from patch_and_update_local to fetch the latest PKGBUILD
+# After that you should be able to run makepkg -si to install it

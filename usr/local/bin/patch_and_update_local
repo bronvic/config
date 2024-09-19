@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+PATCH_DIR="/usr/local/src/patches"
+BUILD_DIR="/tmp/package-builds"
+
+mkdir -p "$BUILD_DIR"
+
+package_installed() {
+    local pkg_name="$1"
+    if pacman -Qi "$pkg_name" &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+package_needs_update() {
+    local pkg_name="$1"
+    if pacman -Qu | grep -q "^$pkg_name"; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+for pkg_folder in "$PATCH_DIR"/*; do
+    if [ -d "$pkg_folder" ]; then
+        pkg_name=$(basename "$pkg_folder")
+        patch_file="$pkg_folder/PKGBUILD.patch"
+
+        if ! package_installed "$pkg_name"; then
+            echo "$pkg_name is not installed, skipping."
+            continue
+        fi
+
+        echo "Checking $pkg_name for updates..."
+        if ! package_needs_update "$pkg_name"; then
+            echo "$pkg_name is up-to-date, skipping."
+            continue
+        fi
+        echo "Updating and patching $pkg_name..."
+
+        cd "$BUILD_DIR" || exit
+        if [ -d "$pkg_name" ]; then
+            sudo rm -r "$pkg_name"
+        fi
+
+        download_pkgbuild "$pkg_name" "$BUILD_DIR/$pkg_name"
+        cd "$pkg_name" || exit
+
+        # Apply the patch to the PKGBUILD
+        if [ -f "$patch_file" ]; then
+            echo "Applying patch $patch_file to $pkg_name..."
+            patch < "$patch_file"
+        else
+            echo "Patch file for $pkg_name not found, skipping."
+            continue
+        fi
+
+        echo "Building and installing $pkg_name with paru..."
+        makepkg -si
+
+        # Clean up the build directory
+        cd ..
+        rm -rf "$pkg_name"
+    fi
+done
+
+echo "All packages processed."
+
