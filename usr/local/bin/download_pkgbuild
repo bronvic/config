@@ -57,6 +57,3 @@ else
     download_latest_tag_pkgbuild "$1" "$2"
 fi
 
-
-# U were trying to run this script from patch_and_update_local to fetch the latest PKGBUILD
-# After that you should be able to run makepkg -si to install it
