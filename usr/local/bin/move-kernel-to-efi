@@ -1,12 +1,13 @@
 #!/bin/bash
 
+echo "move to kernel temporary disabled"
 # Destination directory
-DEST="/efi/EFI/arch"
+# DEST="/efi/EFI/arch"
 
 # Ensure destination directory exists
-mkdir -p "${DEST}"
+# mkdir -p "${DEST}"
 
 # Copy files
-cp /boot/* "${DEST}/"
+# cp /boot/* "${DEST}/"
 
-echo "Files copied to ${DEST}"
+# echo "Files copied to ${DEST}"
