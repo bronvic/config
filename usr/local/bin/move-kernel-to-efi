@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "move to kernel temporary disabled"
+echo "move to EFI temporary disabled"
 # Destination directory
 # DEST="/efi/EFI/arch"
 
