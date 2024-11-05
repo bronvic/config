@@ -165,7 +165,7 @@ exec_always --no-startup-id conky -c $HOME/.config/conky/conky.conf
 exec setxkbmap -option grp:alt_shift_toggle, us,ru
 
 # Bluetooth
-# exec blueberry-tray
+exec blueman-applet
 
 # Disable touchpad while typing
 # exec syndaemon -i 1 -d
@@ -187,6 +187,7 @@ for_window [class="Yad"] floating enable
 for_window [class="1Password"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="iwgtk"] floating enable
+for_window [class="Blueman-manager"] floating enable
 
 
 # i3 configuration; num and caps indicators
